@@ -2,3 +2,4 @@ __pycache__/
 t5-base/
 t5-large/
 datasets/
+glove/
