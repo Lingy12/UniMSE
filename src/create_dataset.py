@@ -251,7 +251,7 @@ class MOSEI:
             # dataset.align(text_field, collapse_functions=[avg])
             # load pickle file for unaligned acoustic and visual source
             #pickle_filename = '../datasets/MOSEI/mosei_senti_data_noalign.pkl'
-            pickle_filename = '../datasets/MOSEI/mosei_data_0421.pkl'
+            pickle_filename = '../datasets/MOSEI/mosei_data_0610.pkl'
 
             csv_filename = '../datasets/MOSEI/MOSEI-label.csv'
 

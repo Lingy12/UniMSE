@@ -1,0 +1,10 @@
+torch
+torchvision
+tensorboardX==2.5
+tensorflow-estimator==1.15.1
+tensorflow-gpu==1.15.0
+transformers==4.12.5
+scikit-learn
+matplotlib
+pandas
+sentencepiece

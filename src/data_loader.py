@@ -255,9 +255,10 @@ def get_loader(hp, config, prompt_dict = None, shuffle=True):
                     else:
                         prompt_emb.append(prompt_dict['classification'])
 
-
+            # print(task_prefix)
+            # print(inputs_seq[0])
             encoding = tokenizer(
-                [task_prefix + sequence for sequence in inputs_seq],
+                [task_prefix + ' '.join(sequence) for sequence in inputs_seq],
                 return_tensors="pt", padding=True
             )
             # T5 model things are batch_first
