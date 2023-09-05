@@ -480,12 +480,12 @@ class MOSELDMP:
         # self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_2.pkl')
         # self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_2.pkl')
         
-        self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0424_a_6c_contexts.pkl')
-        self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0424_a_6c_contexts.pkl')
-        self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0424_a_6c_contexts.pkl')
-        self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0424_a_6c_contexts.pkl')
-        self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_contexts.pkl')
-        self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_contexts.pkl')
+        self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
+        self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
+        self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
+        self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
+        self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
+        self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0610_a_6c_sep_contexts_speaker_v.pkl')
 
         self.multi = True
         self.pretrained_emb, self.word2id = None, None
