@@ -91,6 +91,7 @@ class Model(nn.Module):
         return outputs
 
     def forward(self, sentences,t5_input_id, t5_att_mask, t5_labels, ids,  visual=None, acoustic=None, v_len=None, a_len=None):
+        # print(a_len.long().cpu())
         if self.multi:
             if self.hp.adapter_name == 'cross-atten':
                 acoustic, acoustic_seq = self.acoustic_enc(acoustic, a_len, use_seq=True)

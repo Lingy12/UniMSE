@@ -55,8 +55,10 @@ class Solver(object):
             self.model = Model(hp)
         
         if torch.cuda.is_available():
-            model = nn.DataParallel(self.model, device_ids=[0,1])
-            model.to(DEVICE)
+            # print('Initialize model parallel using gpu 0 and 1')
+            # self.model = nn.DataParallel(self.model, device_ids=[0,1])
+            self.model.to(DEVICE)
+            # self.model.cuda()
         else:
             self.device = torch.device("cpu")
 
@@ -72,7 +74,7 @@ class Solver(object):
 
             if hp.fine_T5:
                 fine_T5_layers = hp.fine_T5_layers
-                for name, p in model.named_parameters():
+                for name, p in self.model.named_parameters():
                     # print(name)
                     if p.requires_grad:
                         if 'adapter' in name:
@@ -198,9 +200,9 @@ class Solver(object):
             model.train()
             num_batches = self.hp.n_train // self.hp.batch_size
 
+            print('total batch = {}'.format(num_batches))
             for i_batch, batch_data in tqdm(enumerate(self.train_loader)):
                 sentences, visual, vlens, acoustic, alens, y, t5_input_id, t5_att_mask, t5_labels,_, _, ids = batch_data
-
                 model.zero_grad()
 
                 with torch.cuda.device(0):
@@ -220,7 +222,8 @@ class Solver(object):
                         t5_input_id, t5_att_mask, t5_labels = \
                             t5_input_id.to(DEVICE), \
                             t5_att_mask.to(DEVICE), t5_labels.to(DEVICE)
-
+                # alens = alens.cpu().long()
+                # vlens = vlens.cpu().long() # requirement from pytorch
                 logits, total_loss = self.model(sentences, t5_input_id, t5_att_mask,
                                           t5_labels, ids, visual, acoustic, vlens, alens)
 
