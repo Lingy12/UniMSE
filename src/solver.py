@@ -18,6 +18,7 @@ from transformers import T5Tokenizer
 from model import Model
 from config import DEVICE, get_args, get_config
 from tqdm import tqdm
+import torch.nn as nn
 
 class Solver(object):
     def __init__(self, hyp_params, train_loader, dev_loader, test_loader, is_train=True, model=None, pretrained_emb=None):
@@ -54,7 +55,8 @@ class Solver(object):
             self.model = Model(hp)
         
         if torch.cuda.is_available():
-            model = self.model.to(DEVICE)
+            model = nn.DataParallel(self.model, device_ids=[0,1])
+            model.to(DEVICE)
         else:
             self.device = torch.device("cpu")
 
