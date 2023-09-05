@@ -17,7 +17,7 @@ from utils import contains_fine
 from transformers import T5Tokenizer
 from model import Model
 from config import DEVICE, get_args, get_config
-import tqdm
+from tqdm import tqdm
 
 class Solver(object):
     def __init__(self, hyp_params, train_loader, dev_loader, test_loader, is_train=True, model=None, pretrained_emb=None):
