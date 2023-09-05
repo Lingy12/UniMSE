@@ -17,6 +17,7 @@ from utils import contains_fine
 from transformers import T5Tokenizer
 from model import Model
 from config import DEVICE, get_args, get_config
+import tqdm
 
 class Solver(object):
     def __init__(self, hyp_params, train_loader, dev_loader, test_loader, is_train=True, model=None, pretrained_emb=None):
@@ -195,7 +196,7 @@ class Solver(object):
             model.train()
             num_batches = self.hp.n_train // self.hp.batch_size
 
-            for i_batch, batch_data in enumerate(self.train_loader):
+            for i_batch, batch_data in tqdm(enumerate(self.train_loader)):
                 sentences, visual, vlens, acoustic, alens, y, t5_input_id, t5_att_mask, t5_labels,_, _, ids = batch_data
 
                 model.zero_grad()
