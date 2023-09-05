@@ -13,7 +13,6 @@ def to_pickle(obj, path):
         pickle.dump(obj, f)
 
 video_dim = 64 # 64 or 35 in 0610 version
-### 处理下iemocap的原始标签，使其成为有语义的token, 而不是token的部分
 
 def label_mapping(obj, train=True, iemocap=False):
     label_dict = {'hap':'joy', 'sad': 'sadness', 'neu':'neutral', 'fru': 'frustrated', 'ang':'anger', 'exc':'excited'}
@@ -61,7 +60,6 @@ def label_filter(obj, train=True):
     return data
     
 def feature_cutting(obj):
-    ### 这一函数的功能主要是截断特征以及padding序列长度
     data = []
     for sample in obj:
         video = sample[0][1]
@@ -77,7 +75,7 @@ def feature_cutting(obj):
 def feature_pading(obj, padvalue=0.0):
     data = []
     A = -0.001
-    B = 0.001  # 小数的范围A ~ B
+    B = 0.001  
     C = 6
     for sample in obj:
         vision = sample[0][1]
@@ -135,7 +133,7 @@ mosi_train_data = label_mapping(mosi_train_data)
 print('len mosi_train:{}'.format(len(mosi_train_data)))
 print('len mosi_dev:{}'.format(len(mosi_dev_data)))
 print('len mosi_test:{}'.format(len(mosi_test_data)))
-mosi_test = load_pickle(mosi_DATA_PATH + '/test.pkl')
+mosi_test = load_pickle(mosi_DATA_PATH + '/new_test_align_v4_0610.pkl')
 
 mosei_DATA_PATH = '../datasets/MOSEI'
 mosei_train = load_pickle(mosei_DATA_PATH + '/new_train_align_v4_0610.pkl')

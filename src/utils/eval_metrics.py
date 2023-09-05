@@ -94,6 +94,7 @@ def eval_laptops_restants(results, truths):
 
 def eval_mosei_senti(results, truths, ids_list, exclude_zero=False):
     # test_truth = truths.view(-1).cpu().detach().numpy()
+    # print(truths)
     test_truth = np.array(functools.reduce(operator.concat, truths))
     new_test_truth = []
     # for e in test_truth:

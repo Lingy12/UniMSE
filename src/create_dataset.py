@@ -82,7 +82,7 @@ class MOSI:
                 check_call(' '.join(['mkdir', '-p', DATA_PATH]), shell=True)
 
             # load pickle file for unaligned acoustic and visual source
-            pickle_filename = '../datasets/MOSI/mosi_data_noalign.pkl'
+            pickle_filename = '../datasets/MOSI/mosi_data_0610.pkl'
             csv_filename = '../datasets/MOSI/MOSI-label.csv'
 
             with open(pickle_filename, 'rb') as f:

@@ -28,12 +28,12 @@ class MSADataset(Dataset):
         elif "mosei" in str(config.data_dir).lower():
             dataset = MOSEI(config)
             self.multi = True
-        elif 'moselap' in str(config.data_dir).lower():
-            dataset = MOSELAP(config)
-            self.multi = True
-        elif 'moselprs' in str(config.data_dir).lower():
-            dataset = MOSELPRS(config)
-            self.multi = True
+        # elif 'moselap' in str(config.data_dir).lower():
+        #     dataset = MOSELAP(config)
+        #     self.multi = True
+        # elif 'moselprs' in str(config.data_dir).lower():
+        #     dataset = MOSELPRS(config)
+        #     self.multi = True
         elif 'moseldmp' in str(config.data_dir).lower():
             dataset = MOSELDMP(config)
             self.multi = True
@@ -52,12 +52,12 @@ class MSADataset(Dataset):
         elif 'emotionlines' in str(config.data_dir).lower():
             dataset = EmotionLines(config)
             self.multi = False
-        elif 'laptops' in str(config.data_dir).lower():
-            dataset = Laptops(config)
-            self.multi = False
-        elif 'restaurants' in str(config.data_dir).lower():
-            dataset = Restaurants(config)
-            self.multi = False
+        # elif 'laptops' in str(config.data_dir).lower():
+        #     dataset = Laptops(config)
+        #     self.multi = False
+        # elif 'restaurants' in str(config.data_dir).lower():
+        #     dataset = Restaurants(config)
+        #     self.multi = False
         else:
             print("Dataset not defined correctly")
             exit()

@@ -10,13 +10,13 @@ import torch.nn as nn
 import torch
 
 # path to a pretrained word embedding file
-word_emb_path = '/home/henry/glove/glove.840B.300d.txt'
+word_emb_path = '../glove/glove.840B.300d.txt'
 assert(word_emb_path is not None)
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 username = Path.home().name
 project_dir = Path(__file__).resolve().parent.parent
-sdk_dir = project_dir.joinpath('CMU-MultimodalSDK')
+sdk_dir = '/home/geyu/CMU-MultimodalSDK/'
 data_dir = project_dir.joinpath('datasets')
 data_dict = {'mosi': data_dir.joinpath('MOSI'), 'mosei': data_dir.joinpath(
     'MOSEI'), 'mos':data_dir.joinpath('MOS'), 'moseld':data_dir.joinpath('MOSELD'),'moseldmp': data_dir.joinpath('MOSELDMP'),'iemocap': data_dir.joinpath('IEMOCAP'), 'meld': data_dir.joinpath('MELD'), 'emotionlines': data_dir.joinpath('EmotionLines'),
