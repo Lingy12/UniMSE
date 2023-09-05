@@ -519,7 +519,7 @@ class IEMOCAP:
         DATA_PATH = str(config.dataset_dir)
 
         # If cached data if already exists
-        data = load_pickle(DATA_PATH + '/iemocap_data.pkl')
+        data = load_pickle(DATA_PATH + '/iemocap_data_0610.pkl')
         self.train = data['train']
         self.dev = data['valid']
         self.test = data['test']
@@ -537,96 +537,96 @@ class IEMOCAP:
             print("Mode is not set properly (train/dev/test)")
             exit()
 
-class EmotionLines:
-    def __init__(self, config):
-        if config.sdk_dir is None:
-            print("SDK path is not specified! Please specify first in constants/paths.py")
-            exit(0)
-        else:
-            sys.path.append(str(config.sdk_dir))
+# class EmotionLines:
+#     def __init__(self, config):
+#         if config.sdk_dir is None:
+#             print("SDK path is not specified! Please specify first in constants/paths.py")
+#             exit(0)
+#         else:
+#             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+#         DATA_PATH = str(config.dataset_dir)
 
-        # If cached data if already exists
-        self.train = load_pickle(DATA_PATH + '/friends_train.pkl')
-        self.dev = load_pickle(DATA_PATH + '/friends_dev.pkl')
-        self.test = load_pickle(DATA_PATH + '/friends_test.pkl')
+#         # If cached data if already exists
+#         self.train = load_pickle(DATA_PATH + '/friends_train.pkl')
+#         self.dev = load_pickle(DATA_PATH + '/friends_dev.pkl')
+#         self.test = load_pickle(DATA_PATH + '/friends_test.pkl')
 
-        self.multi=False
+#         self.multi=False
 
-        self.pretrained_emb, self.word2id = None, None
+#         self.pretrained_emb, self.word2id = None, None
 
-    def get_data(self, mode):
-        if mode == "train":
-            return self.train, self.word2id, None
-        elif mode == "valid":
-            return self.dev, self.word2id, None
-        elif mode == "test":
-            return self.test, self.word2id, None
-        else:
-            print("Mode is not set properly (train/dev/test)")
-            exit()
+#     def get_data(self, mode):
+#         if mode == "train":
+#             return self.train, self.word2id, None
+#         elif mode == "valid":
+#             return self.dev, self.word2id, None
+#         elif mode == "test":
+#             return self.test, self.word2id, None
+#         else:
+#             print("Mode is not set properly (train/dev/test)")
+#             exit()
 
-class Laptops:
-    def __init__(self, config):
-        if config.sdk_dir is None:
-            print("SDK path is not specified! Please specify first in constants/paths.py")
-            exit(0)
-        else:
-            sys.path.append(str(config.sdk_dir))
+# class Laptops:
+#     def __init__(self, config):
+#         if config.sdk_dir is None:
+#             print("SDK path is not specified! Please specify first in constants/paths.py")
+#             exit(0)
+#         else:
+#             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+#         DATA_PATH = str(config.dataset_dir)
 
-        # If cached data if already exists
-        self.train = load_pickle(DATA_PATH + '/Laptops_Train.pkl')
-        self.dev = []
-        self.test = load_pickle(DATA_PATH + '/Laptops_Test_Gold.pkl')
+#         # If cached data if already exists
+#         self.train = load_pickle(DATA_PATH + '/Laptops_Train.pkl')
+#         self.dev = []
+#         self.test = load_pickle(DATA_PATH + '/Laptops_Test_Gold.pkl')
 
-        self.multi=False
+#         self.multi=False
 
-        self.pretrained_emb, self.word2id = None, None
+#         self.pretrained_emb, self.word2id = None, None
 
-    def get_data(self, mode):
-        if mode == "train":
-            return self.train, self.word2id, None
-        elif mode == "valid":
-            return self.dev, self.word2id, None
-        elif mode == "test":
-            return self.test, self.word2id, None
-        else:
-            print("Mode is not set properly (train/dev/test)")
-            exit()
+#     def get_data(self, mode):
+#         if mode == "train":
+#             return self.train, self.word2id, None
+#         elif mode == "valid":
+#             return self.dev, self.word2id, None
+#         elif mode == "test":
+#             return self.test, self.word2id, None
+#         else:
+#             print("Mode is not set properly (train/dev/test)")
+#             exit()
 
-class Restaurants:
-    def __init__(self, config):
-        if config.sdk_dir is None:
-            print("SDK path is not specified! Please specify first in constants/paths.py")
-            exit(0)
-        else:
-            sys.path.append(str(config.sdk_dir))
+# class Restaurants:
+#     def __init__(self, config):
+#         if config.sdk_dir is None:
+#             print("SDK path is not specified! Please specify first in constants/paths.py")
+#             exit(0)
+#         else:
+#             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+#         DATA_PATH = str(config.dataset_dir)
 
-        # If cached data if already exists
-        self.train = load_pickle(DATA_PATH + '/Restaurants_Train.pkl')
-        self.dev = []
-        self.test = load_pickle(DATA_PATH + '/Restaurants_Test_Gold.pkl')
+#         # If cached data if already exists
+#         self.train = load_pickle(DATA_PATH + '/Restaurants_Train.pkl')
+#         self.dev = []
+#         self.test = load_pickle(DATA_PATH + '/Restaurants_Test_Gold.pkl')
 
-        self.multi = False
+#         self.multi = False
 
-        self.pretrained_emb, self.word2id = None, None
+#         self.pretrained_emb, self.word2id = None, None
 
 
-    def get_data(self, mode):
-        if mode == "train":
-            return self.train, self.word2id, None
-        elif mode == "valid":
-            return self.dev, self.word2id, None
-        elif mode == "test":
-            return self.test, self.word2id, None
-        else:
-            print("Mode is not set properly (train/dev/test)")
-            exit()
+#     def get_data(self, mode):
+#         if mode == "train":
+#             return self.train, self.word2id, None
+#         elif mode == "valid":
+#             return self.dev, self.word2id, None
+#         elif mode == "test":
+#             return self.test, self.word2id, None
+#         else:
+#             print("Mode is not set properly (train/dev/test)")
+#             exit()
 
 class MELD:
     def __init__(self, config):
