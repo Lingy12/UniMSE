@@ -639,9 +639,9 @@ class MELD:
         DATA_PATH = str(config.dataset_dir)
 
         # If cached data if already exists
-        self.train = load_pickle(DATA_PATH + '/train.pkl')
-        self.dev = load_pickle(DATA_PATH + '/dev.pkl')
-        self.test = load_pickle(DATA_PATH + '/test.pkl')
+        self.train = load_pickle(DATA_PATH + '/new_train_align_v4_0610_sep_contexts_speaker.pkl')
+        self.dev = load_pickle(DATA_PATH + '/new_dev_align_v4_0610_sep_contexts_speaker.pkl')
+        self.test = load_pickle(DATA_PATH + '/new_test_align_v4_0610_sep_contexts_speaker.pkl')
 
         self.multi=False
 
