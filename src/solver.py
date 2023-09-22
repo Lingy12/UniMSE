@@ -422,22 +422,24 @@ class Solver(object):
                     print('--------------------------Evaluate MELD--------------------------------')
                     meld_test_loss, meld_results, meld_truths, meld_ids_list = evaluate(model, self.meld_test_loader,self.hp.n_meld_test, test=True)
                     # meld_results = [ele.split(',')[2] if ele.split(',') == 4 else 'neutral' for ele in meld_results]
+                    # print(meld_results)
+                    # print(meld_truths)
                     meld_results = [ele.split(',')[2] for ele in meld_results]
                     # print('meld_results:{}'.format(meld_results))
 
 
-                    eval_emotionlines(meld_results, meld_truths)
+                    eval_emotionlines(meld_results, list(chain.from_iterable(meld_truths)))
 
                     
                     print('--------------------------Evaluate IEMOCAP--------------------------------')
                     iemocap_test_loss, iemocap_results, iemocap_truths, iemocap_ids_list=evaluate(model, self.iemocap_test_loader,self.hp.n_iemocap_test, test=True)
-                    
+                    print(iemocap_results)
                     # iemocap_results = [ele.split(',')[3] if ele.split(',') == 4 else 'neu' for ele in iemocap_results]
                     iemocap_results = [ele.split(',')[3] for ele in iemocap_results]
                     # print('iemocap_results:{}'.format(iemocap_results))
 
                     
-                    eval_emotionlines(iemocap_results, iemocap_truths)
+                    eval_emotionlines(iemocap_results, list(chain.from_iterable(iemocap_truths)))
                     
                     end = time.time()
                     duration = end - start
